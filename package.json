@@ -1,0 +1,22 @@
+{
+  "name": "adsensemaster",
+  "version": "1.0.0",
+  "description": "help adsense foreigner",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wooooooooooook/adsensemaster.git"
+  },
+  "author": "woooook",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wooooooooooook/adsensemaster/issues"
+  },
+  "homepage": "https://github.com/wooooooooooook/adsensemaster#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
