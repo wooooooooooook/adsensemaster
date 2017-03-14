@@ -1,0 +1,2 @@
+# adsensemaster
+help adsense novice
