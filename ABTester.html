@@ -1,0 +1,120 @@
+<div id="ABTester">
+    <div class="intro padding mdl-shadow--4dp">
+        <h1>
+      Google Adsense A/B TEST Maker
+    </h1>
+        <p class="desc">
+            어떤 광고단위를 쓰고, 어떤 배치를 해야 효과적일까요?
+            <br> 이 때 A/B 테스트를 이용하면, 두가지 광고단위, 두가지 배치 등을 직접 적용하여 일부 방문자에게는 A를, 일부 방문자에게는 B를 보여줄 수 있습니다.
+            <br> 이 A/B TEST 생성기를 이용하면 구글애드센스 뿐만 아니라 다른광고 스크립트에도 응용할 수 있습니다.
+            <br>
+            <a href="http://nubiz.tistory.com/530" target="_blank">더 자세한 설명 및 활용 예시 보러가기</a>
+        </p>
+    </div>
+    <div class="input padding mdl-shadow--4dp">
+        <h2>테스트 설정</h2>
+        <p class="desc">테스트를 한개만 진행할 경우에는 상관없지만 여러개를 동시에 적용할 경우 테스트이름, 광고이름이 중복되지 않도록 주의해주세요.
+            <br> 각 이름은 <b>숫자로 시작하지 않으며 띄어쓰기 없이 영문+숫자</b>로 지어주셔야 중복오류가 발생하지 않아요.</p>
+        <br>
+        <div class="desc">
+            테스트 이름 :
+            <input id="testName" class="insert" placeholder="테스트 이름을 지어주세요 예) width_Test1">
+        </div>
+        <div class="partWrap">
+          <div class="part">
+            <div class="desc adName">
+              광고 A 이름 :
+              <input id="nameA" class="insert" placeholder="광고 A의 이름을 지어주세요 예) testA">
+            </div>
+            <div class="inputA">
+              <textarea id="codeA" class="codeInput" placeholder="광고 A에 해당하는 코드를 여기에 붙여넣으세요"></textarea>
+            </div>
+          </div>
+          <div class="part">
+            <div class="desc adName">
+              광고 B 이름 :
+              <input id="nameB" class="insert" placeholder="광고 B의 이름을 지어주세요 예) testB">
+            </div>
+            <div class="inputB">
+              <textarea id="codeB" class="codeInput" placeholder="광고 B에 해당하는 코드를 여기에 붙여넣으세요"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="desc ratioA">광고 A가 표시될 비율: <span class="outputRatioA">50</span>%
+            <input id="inputRatioA" name="inputRatioA" class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="50" tabindex="0">
+        </div>
+        <button id="apply" class="apply mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <i class="material-icons">check</i>
+            <br/>
+        </button>
+        <div class="mdl-tooltip mdl-tooltip--large" for="apply">적용</div>
+    </div>
+    <div class="result padding mdl-shadow--4dp">
+        <h2><i class="fa fa-code"></i> 완성된 코드</h2>
+        <div class="desc">1. 광고 A가 들어갈 위치에 다음을 붙여넣으세요.
+            <input id="insertA" class="insert" type="text" readonly="readonly">
+        </div>
+        <div class="desc">2. 광고 B가 들어갈 위치에 다음을 붙여넣으세요.
+            <input id="insertB" class="insert" type="text" readonly="readonly">
+        </div>
+        <br>
+        <div class="desc desc2">※같은 자리에 두 광고를 테스트하는 경우에는 같은자리에 연속으로 붙여넣으세요.
+            <br> 예)
+            <input class="insert" id="insertAB" type="text" readonly="readonly" size="70">
+        </div>
+        <br>
+        <p class="desc">3. 다음 스크립트를 &lt;/body&gt; 윗줄에 붙여넣으세요.</p>
+        <textarea id="resultCode" readonly="readonly" cols="100" rows="40"></textarea>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+      function naming(e,t){
+        var r=Math.random().toString().substr(2,4);
+        var name = t+r;
+        $(e).val(name);
+      }
+      naming("#testName","test");
+      naming("#nameA","myAd");
+      naming("#nameB","myAd");
+      $("#inputRatioA").on("change",function(){
+        $(".outputRatioA").text($("#inputRatioA").val());
+      })
+        $(".apply").click(function() {
+            var testName = $("#testName").val();
+            var nameA = $("#nameA").val();
+            var nameB = $("#nameB").val();
+            if (testName.match(/\s/g) || nameA.match(/\s/g) || nameB.match(/\s/g)) {
+                alert("이름에 빈칸이 있으면 안됩니다.");
+                return "";
+            }
+            if (testName.match(/\'/g) || nameA.match(/\'/g) || nameB.match(/\'/g)) {
+                alert("이름에 작은따옴표는 포함할 수 없습니다.");
+                return "";
+            }
+            var codeA = $("#codeA").val();
+            var codeB = $("#codeB").val();
+            if (testName && nameA && nameB && codeA && codeB) {} else {
+                alert("모든 칸을 채워주세요");
+                return ""
+            }
+            codeA = codeA.replace(/(\r\n|\n|\r)/gm,"").replace(/\s+/g," ").replace(/\//g,"\\/").replace(/\'/g,"\\'");
+            codeB = codeB.replace(/(\r\n|\n|\r)/gm,"").replace(/\s+/g," ").replace(/\//g,"\\/").replace(/\'/g,"\\'");
+            ratioA = $("#inputRatioA").val();
+            result = '<script>window.jQuery || document.write(\'<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"><\\/script>\')<\/script>\n'
+            result += "<script>\n"
+            result += "var "+testName + "= Math.random();\n"
+            result += "if (" + testName + "< " + ratioA / 100 + ") {\n"
+            result += " $('#" + nameA + "').append('" + codeA + "')\n"
+            result += "} else {\n"
+            result += " $('#" + nameB + "').append('" + codeB + "')\n"
+            result += "}\n<\/script>"
+            $("#insertA").val("<div id='" + nameA + "'></div>");
+            $("#insertB").val("<div id='" + nameB + "'></div>");
+            $("#insertAB").val("<div id='" + nameA + "'></div><div id='" + nameB + "'></div>")
+            $("#resultCode").val(result);
+            $(".result").show(500);
+        })
+    })
+</script>

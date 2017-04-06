@@ -1,0 +1,308 @@
+<div id="codeMaker">
+  <div class="intro padding mdl-shadow--4dp">
+    <h1>Easy Adsense Code maker</h1>
+    <p class="desc">초보자들을 위한 애드센스 코드생성기입니다.<br>
+      애드센스에서 코드를 복사해 여기에 붙여넣으면, html에 붙여넣을 수 있는 코드가 생성됩니다.
+    </p>
+    <ul class="desc"><b>특징</b>
+      <li>광고가 들어갈 위치와, 실제 광고 코드가 분리되어있습니다.</li>
+      <li>광고를 수정할 때 실제 코드들이 모여있어서 편리합니다.</li>
+      <li>위치지정 태그가 있을 때만 광고가 삽입됩니다.</li>
+      <li>초보자들도 가운데 정렬같은 광고구현이 쉽습니다.</li>
+      <li>정책위반 위험 없이 광고삭제나 위치이동 등 유연한 광고구현이 가능합니다.</li>
+    </ul>
+  </div>
+  <div class="input padding mdl-shadow--4dp">
+    <h2>여기에 애드센스 코드를 붙여 넣어주세요.</h2>
+    <i class="material-icons Q_config">help</i>
+    <div class="help A_config">
+      <p class="desc">
+        <b>텍스트와 나란히</b>: 광고가 한 줄을 차지하지 않고, 남은 여백에 글자나 그림 등의 요소가 올라올 수 있습니다.<br/>
+        이 경우 반드시 여백을 함께 설정하시기 바랍니다.<br/><br/>
+        여백을 설정하지 않으려면 여백에 0을 넣으면 됩니다.<br/><br/>
+        반응형 고급코드는 <a href="index.php?id=advancedMaker.html">여기</a>에서 쉽게 설정할 수 있습니다.<br/><br/>
+      </p>
+    </div>
+    <p>한 칸에는 반드시 하나의 코드만 넣어주세요.</p>
+    <div class="checkboxes">
+      <textarea id="code1" class="textinput" placeholder="여기에 1번 코드를 붙여넣기"></textarea>
+      <div class="padding">
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="withText1">
+          <input type="checkbox" id="withText1" onclick="noOverlap(1)" class="mdl-switch__input">
+          <span class="mdl-switch__label">텍스트와 나란히</span>
+        </label><br>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isCenter1">
+            <input type="radio" id="isCenter1" class="mdl-radio__button" name="pos1" checked>
+            <span class="mdl-radio__label">가운데 정렬</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isLeft1">
+            <input type="radio" id="isLeft1" class="mdl-radio__button" name="pos1">
+            <span class="mdl-radio__label">왼쪽 정렬</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isRight1">
+            <input type="radio" id="isRight1" class="mdl-radio__button" name="pos1">
+            <span class="mdl-radio__label">오른쪽 정렬</span>
+        </label><br>
+        <div class="setMargin">
+          <div class="center">광고</div>
+          <span>여백(px)</span>
+          <input type="number" class="margin up" id="marginU1" value="0">
+          <input type="number" class="margin left" id="marginL1" value="0">
+          <input type="number" class="margin right" id="marginR1" value="0">
+          <input type="number" class="margin down" id="marginD1" value="0">
+        </div>
+      </div>
+    </div>
+    <div class="checkboxes">
+      <textarea id="code2" class="textinput" placeholder="여기에 2번 코드를 붙여넣기"></textarea>
+      <div class="padding">
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="withText2">
+          <input type="checkbox" id="withText2" onclick="noOverlap(2)" class="mdl-switch__input">
+          <span class="mdl-switch__label">텍스트와 나란히</span>
+        </label><br>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isCenter2">
+            <input type="radio" id="isCenter2" class="mdl-radio__button" name="pos2" checked>
+            <span class="mdl-radio__label">가운데 정렬</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isLeft2">
+            <input type="radio" id="isLeft2" class="mdl-radio__button" name="pos2">
+            <span class="mdl-radio__label">왼쪽 정렬</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isRight2">
+            <input type="radio" id="isRight2" class="mdl-radio__button" name="pos2">
+            <span class="mdl-radio__label">오른쪽 정렬</span>
+        </label><br>
+        <div class="setMargin">
+          <div class="center">광고</div>
+          <span>여백(px)</span>
+          <input type="number" class="margin up" id="marginU2" value="0">
+          <input type="number" class="margin left" id="marginL2" value="0">
+          <input type="number" class="margin right" id="marginR2" value="0">
+          <input type="number" class="margin down" id="marginD2" value="0">
+        </div>
+      </div>
+    </div>
+    <div class="checkboxes">
+      <textarea id="code3" class="textinput" placeholder="여기에 3번 코드를 붙여넣기"></textarea>
+      <div class="padding">
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="withText3">
+          <input type="checkbox" id="withText3" onclick="noOverlap(3)" class="mdl-switch__input">
+          <span class="mdl-switch__label">텍스트와 나란히</span>
+        </label><br>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isCenter3">
+            <input type="radio" id="isCenter3" class="mdl-radio__button" name="pos3" checked>
+            <span class="mdl-radio__label">가운데 정렬</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isLeft3">
+            <input type="radio" id="isLeft3" class="mdl-radio__button" name="pos3">
+            <span class="mdl-radio__label">왼쪽 정렬</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="isRight3">
+            <input type="radio" id="isRight3" class="mdl-radio__button" name="pos3">
+            <span class="mdl-radio__label">오른쪽 정렬</span>
+        </label><br>
+        <div class="setMargin">
+          <div class="center">광고</div>
+          <span>여백(px)</span>
+          <input type="number" class="margin up" id="marginU3" value="0">
+          <input type="number" class="margin left" id="marginL3" value="0">
+          <input type="number" class="margin right" id="marginR3" value="0">
+          <input type="number" class="margin down" id="marginD3" value="0">
+        </div>
+      </div>
+    </div>
+    <button id="apply" class="apply mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">check</i><br/>
+    </button>
+    <div class="mdl-tooltip mdl-tooltip--large" for="apply">적용</div>
+  </div>
+  <div class="output padding mdl-shadow--4dp">
+    <h2>생성된 코드</h2>
+    <i class="material-icons Q_result">help</i>
+    <div class="help A_result">
+      <p class="desc">
+        <b>광고 2개를 나란히 표시하는 방법</b>: 1,2번 위치 코드 대신에 다음 코드를 사용합니다.<br>
+        (각 광고의 크기가 나란히 2개를 붙이기에 너무 크면 세로로 나열됩니다.)<br>
+        [코드]<br>
+      </p><div class="desc" style="border:#aaa solid 1px">
+        &lt;div&gt;<br>
+        &nbsp;&lt;div id="Adsense1" style="width:50%;text-align:center;float:left"&gt;&lt;/div&gt;<br>
+        &nbsp;&lt;div id="Adsense2" style="width:50%;text-align:center;float:left"&gt;&lt;/div&gt;<br>
+        &lt;/div&gt;<br>
+      </div>
+      <p></p>
+    </div>
+    <br>
+    <p><b>1번 위치 코드</b>:1번 광고가 표시될 위치에 붙여 넣으세요.</p>
+    <textarea id="posCode1" readonly></textarea><br>
+    <p><b>2번 위치 코드</b>:2번 광고가 표시될 위치에 붙여 넣으세요.</p>
+    <textarea id="posCode2" readonly></textarea><br>
+    <p><b>3번 위치 코드</b>:3번 광고가 표시될 위치에 붙여 넣으세요.</p>
+    <textarea id="posCode3" readonly></textarea><br><br>
+    <p><b>스크립트</b>:아래 결과를 복사하여 /body 윗줄에 삽입하세요.</p>
+    <textarea id="result" class="textoutput" placeholder="적어도 하나의 광고코드를 넣어야 코드가 나타납니다." readonly></textarea>
+  </div>
+  <script>
+  /*
+  반응형
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script>
+  <!-- life is an egg Bottom반응형 본문 하단 -->
+  <ins class="adsbygoogle"
+  style="display:block"
+  data-ad-client="ca-pub-0503973014303096"
+  data-ad-slot="2814157899"
+  data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  <\/script>
+  비동기식
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script>
+  <!-- life is an egg tistory mobile bottom -->
+  <ins class="adsbygoogle"
+  style="display:inline-block;width:300px;height:250px"
+  data-ad-client="ca-pub-0503973014303096"
+  data-ad-slot="2936247090"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  <\/script>
+  동기식
+  <script type="text/javascript">
+  google_ad_client = "ca-pub-0503973014303096";
+  google_ad_slot = "2936247090";
+  google_ad_width = 300;
+  google_ad_height = 250;
+  <\/script>
+  <!-- life is an egg tistory mobile bottom -->
+  <script type="text/javascript"
+  src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+  <\/script>
+  */
+  //코드 추출
+  function extAdCode(input) {
+    var type;
+    var code = $(input).val(); //input=id, 코드를 받아옵니다.
+    if (code.split('ins').length > 3) {
+      alert('광고 코드는 한번만 넣어야 합니다.\n위치:' + input);
+      return ''; //ins한개인지 체크
+    } else if (code.length === 0) {
+      return "";
+    } else {
+      code = code.replace(/(\r\n|\n|\r)/gm, "").replace(/\s+/g, " "); //공백제거
+      if (code.match(/google_ad_client/) !== null) {
+        alert(input + "에 입력한 동기식 코드는 지원하지 않습니다.");
+        return false;
+      } else if (code.match(/<style/g) !== null) {
+        type = 0;//반응형고급
+      } else if (code.match(/data-ad-format/g) !== null) {
+        type = 1;//반응형
+      } else {
+        type = 2;//비동기
+      }
+      /* type
+      0:반응형 고급코드,
+      1:반응형,
+      2:비동기,
+      3:동기(미지원)*/
+      var ins = code.match(/<ins([\s\S]+)ins>+/gi).toString();
+      console.log(ins);
+      switch(type){
+        case 0:
+        var style = code.match(/<style([\s\S]+)style>+/gi).toString();
+        var className = style.toString().match(/\.[\w-]+/)[0];
+        return [type, ins, style, className];
+        break;
+        default:
+        return [type, ins, "", ""];
+      }
+    }
+  }
+
+  function resultCode(n) {
+    var insn = extAdCode("#code" + n)[1];
+    if (insn === undefined) {
+      return "";
+    } else if (extAdCode("#code" + n)[0] == 0) {
+      var stylen = extAdCode("#code" + n)[2];
+      return '  $("#Adsense' + n + '").append(\'<div id="Ad' + n + '" class="AdsenseAds">' + stylen + insn + '</div>\');\n';
+    } else if (extAdCode("#code" + n)[0] == 3) {
+      return '';
+    } else {
+      return '  $("#Adsense' + n + '").append(\'<div id="Ad' + n + '" class="AdsenseAds">' + insn + '</div>\');\n';
+    }
+  }
+
+  //위치 중복방지
+  function noOverlap(n) {
+    var withTextn = '#withText' + n;
+    var centern = '#isCenter' + n;
+    var leftn = '#isLeft' + n;
+    if (isChecked(withTextn) === true) {
+      $(centern).attr('disabled', '');
+      $(leftn).attr('checked', '');
+    } else {
+      $(centern).removeAttr('disabled', '');
+    }
+  }
+  //체크 확인 함수
+  function isChecked(a) {
+    var b = $(a).is(':checked');
+    if (b) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  //위치삽입코드 생성
+  function setAdPos(n) {
+    var withTextn = isChecked('#withText' + n);
+    var centern = isChecked('#isCenter' + n);
+    var leftn = isChecked('#isLeft' + n);
+    var rightn = isChecked('#isRight' + n);
+    var mU = $('#marginU' + n).val();
+    var mR = $('#marginR' + n).val();
+    var mD = $('#marginD' + n).val();
+    var mL = $('#marginL' + n).val();
+    var float="";
+    var center="";
+    var margin;
+    (mU!=0||mR!=0||mD!=0||mL!=0)? margin = "margin:"+mU +"px "+mR +"px "+mD +"px "+mL +"px": margin = "";
+    if (withTextn === true) {
+      if (rightn === true) {
+        float = 'float:right;';
+      } else if (leftn === true) {
+        float = 'float:left;';
+      }
+    } else {
+      if (rightn === true) {
+        float = 'text-align:right;';
+      }
+    }
+    if (centern === true) {
+      center = 'text-align:center;';
+    }
+    return '<div id="Adsense' + n + '" style="' + float + center + margin + '"></div>';
+  }
+  //실행
+  $(".apply").click(function() {
+    $(".output").show();
+    $("#posCode1").val(setAdPos(1));
+    $("#posCode2").val(setAdPos(2));
+    $("#posCode3").val(setAdPos(3));
+    var result1 = resultCode(1);
+    var result2 = resultCode(2);
+    var result3 = resultCode(3);
+    //결과값
+    var result = '<script>window.jQuery || document.write(\'<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"><\\/script>\')<\/script>\n<script>' + result1 + result2 + result3 + '<\/script>\n<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script>\n<script>$(\'.adsbygoogle\').each(function(){(adsbygoogle = window.adsbygoogle || []).push({});});<\/script>';
+      //하나이상 존재하면 출력
+      if (result1 || result2 || result3) {
+        $("#result").val(result);
+      }
+    });
+    $(".Q_config").click(function() {
+      $(".A_config").slideToggle();
+    });
+    $(".Q_result").click(function() {
+      $(".A_result").slideToggle();
+    });
+  </script>
+</div>

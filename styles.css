@@ -1,0 +1,143 @@
+p {
+  margin:0;
+}
+input{
+  text-align:right;
+}
+body{
+  background:#eee;
+}
+.mdl-cell{
+  background: #fff;
+}
+.desc {
+  color:#333;
+  font-size:.8em;
+  line-height:1.3em;
+  margin:.2em;
+}
+.help{
+  display:none;
+  border:#efefef solid 1px;
+  border-radius:3px;
+  box-shadow:#ddd 1px 0 4px;
+  padding:.5em;
+  margin:1em;
+}
+.padding {
+  padding: 16px;
+}
+textarea:read-only {
+  color: #999;
+}
+.apply {
+  display:block;
+}
+[class*="Q_"] {
+  float:right;
+}
+#codeMaker .input .checkboxes .textinput{
+  width:50%;
+  height:160px;
+  float:left;
+}
+#codeMaker .input .checkboxes>div{
+  width:50%;
+  float:left;
+  box-sizing: border-box;
+}
+#codeMaker .input .setMargin{
+  position: relative;
+  height:120px;
+}
+#codeMaker .input .setMargin span{
+  position:absolute;
+  top:10px;
+  left: 10px;
+}
+#codeMaker .input .center {
+  position: absolute;
+  left: calc(50% - 25px);
+  top: calc(50% - 20px);
+  width: 50px;
+  height: 40px;
+  background: #999;
+  color:#fff;
+  text-align:center;
+  line-height: 40px;
+}
+#codeMaker .input .margin {
+  position: absolute;
+  width: 40px;
+}
+#codeMaker .input .margin.up {
+  left:calc(50% - 20px);
+  top: calc(50% - 40px);
+}
+#codeMaker .input .margin.left {
+  left: calc(50% - 70px);
+  top:calc(50% - 10px);
+}
+#codeMaker .input .margin.right {
+  left: calc(50% + 26px);
+  top: calc(50% - 10px);
+}
+#codeMaker .input .margin.down {
+  left: calc(50% - 20px);
+  top: calc(50% + 22px);
+}
+#codeMaker .textinput, #codeMaker .textoutput {
+  border:#ddd solid 1px;
+  box-sizing: border-box;
+  resize:none;
+}
+#codeMaker textarea{
+  background:#fcfcfc;
+  width:100%;
+  height:1.7em;
+}
+#codeMaker textarea.textoutput{
+  height:20em;
+}
+#codeMaker .checkboxes {
+  margin:1em 0;
+}
+#advancedMaker textarea {
+  width: 100%;
+}
+#advancedMaker .cases input {
+  width:50px;
+}
+#advancedMaker .cases {
+  border-left:#55AADE solid 3px;
+  padding:10px;
+  margin:10px auto;
+}
+#advancedMaker .cases span{
+  margin-right:10px;
+}
+#advancedMaker .cases *{
+  vertical-align: text-bottom;
+}
+#advancedMaker .btn.plus {
+  text-align: center;
+  cursor: cell;
+}
+#ABTester .partWrap {
+  display: flex;
+  border: #eee 1px solid;
+}
+#ABTester .part{
+  flex:1;
+  padding:8px;
+}
+#ABTester textarea {
+    width: 100%;
+    height: 200px;
+}
+#ABTester .mdl-slider__background-upper {
+    background: #ff4081;
+}
+#ABTester .ratioA {
+  margin: 3em 1em;
+}

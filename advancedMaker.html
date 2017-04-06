@@ -1,0 +1,249 @@
+<div id="advancedMaker">
+    <div class="intro padding mdl-shadow--4dp">
+        <h1>반응형 고급코드 생성기</h1>
+        <p class="desc">
+            반응형 광고단위는 반응형 웹 구현을 위한 광고단위입니다.
+            <br /> 구글에서 제공하는 코드를 그대로 사용하면 별다른 설정이 필요없는 반면에, 무조건 가로로 꽉찬 광고가 나타납니다.
+            <br/> 그러나 스타일 시트 수정을 통해 화면크기에 따라 원하는 광고를 노출시킬 수 있습니다.
+            <br /> 하지만 스타일 시트를 수정하는 것은 어느정도의 HTML/CSS지식이 필요합니다.
+            <br /> 이 과정에서 어려움을 겪으시는 분들을 위해 이 도구는 클릭 몇번으로 스타일시트 수정을 도와드립니다.
+            <br /> 반응형 광고단위 코드를 붙여넣고 설정을 마치면 상황에 맞게 생성된 코드를 가져올 수 있습니다.
+            <br /> 더 자세한 설명은 <a href="http://nubiz.tistory.com/570" target="_blank">여기</a>에서 확인해보세요.
+            <br/> ※수정 근거 : <a href="https://support.google.com/adsense/answer/3543893">https://support.google.com/adsense/answer/3543893</a> - 고급 부분
+        </p>
+    </div>
+    <div class="input padding mdl-shadow--4dp">
+        <h2>코드를 여기에 삽입하세요</h2>
+        <textarea id="code" class="textInput" rows="10" placeholder="반응형 광고단위 생성 후, '코드 가져오기'를 통해 코드를 획득해서 붙여넣으세요."></textarea>
+    </div>
+    <div class="padding mdl-shadow--4dp edit">
+        <h2><i class="material-icons">build</i> 설정</h2>
+        <i class="material-icons Q_config">help</i>
+        <div class="help A_config">
+            <p class="desc">
+                <b>기본크기란?</b>: 어떤 조건에도 해당하지 않을 때 출력되는 광고 크기,
+                <br /> 또는 IE8이하에서 출력될 크기
+                <br /> (320px x 250px 추천.)
+                <br />
+                <br />
+                <b>일반적인 설정 방법</b>
+                <br /> 기본: 모바일에서 크기
+                <br/> 768px 보다 클 때: 태블릿에서 크기
+                <br /> 1024px 보다 클 때: 데스크탑에서 크기
+                <br />
+                <br />
+                <b>기종별 가로픽셀</b>
+                <br /> 아이폰,갤럭시S2 이하:320px
+                <br /> 갤럭시S3 이상:360px
+                <br /> 아이패드(세로모드):768px
+                <br /> 기타:
+                <a href="http://troy.labs.daum.net/" target="_blank">http://troy.labs.daum.net/</a>에서 확인해보세요.
+                <br />
+            </p>
+        </div>
+        <p>광고 이름:
+            <input type="text" class="className" value="myAd1" />
+        </p>
+        <span class="desc">광고이름은 광고단위마다 달라야 합니다. 띄어쓰기없이 영문으로 시작하며 한글,특수문자는 포함할 수 없습니다.</span>
+        <p> 기본 크기 <i class="material-icons">forward</i> 가로:
+            <input type="text" id="defaultx" value="320px" /> 세로:
+            <input type="text" id="defaulty" value="250px" />
+        </p>
+        <div>
+            <div class="casesWrap">
+                <div class="cases">
+                    <span>가로 픽셀이<input type="text" class="if" value="400"/>px
+                      <select class="minOrMax">
+                        <option value="이상">이상</option>
+                        <option value="이하">이하</option>
+                      </select>일 때 <i class="material-icons">forward</i>
+                      가로:<input type="text" class="width" value="336px"/>
+                      세로:<input type="text" class="height" value="280px"/>
+                      <label for="checkbox-1">
+                        <input type="checkbox" id="checkbox-1" class="displayN">
+                        <span class="">광고숨기기</span>
+                      </label>
+                    </span>
+                    <span class="btn minus" title="조건 삭제"> <i class="material-icons">clear</i> </span>
+                </div>
+                <div class="cases">
+                    <span>가로 픽셀이<input type="text" class="if" value="768"/>px
+                      <select class="minOrMax">
+                        <option value="이상">이상</option>
+                        <option value="이하">이하</option>
+                      </select>일 때 <i class="material-icons">forward</i>
+                      가로:<input type="text" class="width" value="728px"/>
+                      세로:<input type="text" class="height" value="90px"/>
+                      <label for="checkbox-2">
+                        <input type="checkbox" id="checkbox-2" class="displayN">
+                        <span class="">광고숨기기</span>
+                      </label>
+                    </span>
+                    <span class="btn minus" title="조건 삭제"> <i class="material-icons">clear</i> </span>
+                </div>
+            </div>
+        </div>
+        <div class="btn plus" title="조건 추가">
+            <i class="material-icons">add_box</i>
+        </div>
+        <p class="desc">단위 입력 주의! (px 또는 %)</p>
+        <button id="apply" class="apply mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+            <i class="material-icons">check</i>
+            <br/>
+        </button>
+        <div class="mdl-tooltip mdl-tooltip--large" for="apply">적용</div>
+    </div>
+    <!--
+    <div class="padding mdl-shadow--4dp preview" id="preview">
+        <h2>
+        <i class="fa fa-search fa-border"></i> 미리보기
+      </h2><i class="fa fa-question-circle pull-right Q_preview"></i>
+        <div class="help A_preview">
+            <p class="desc">
+                브라우저 크기를 조절하면서 반응형 광고 크기변화를 확인할 수 있습니다.
+                <br /> 브라우저에 따라 현재 가로 창 크기에 오차가 있을 수 있습니다.
+                <br /> 삽입할 페이지의 여백에 따라 광고 오른쪽이 잘려보일 수 있으므로 가로 너비에 여유를 두는게 좋습니다.
+                <br />
+            </p>
+        </div>
+        <div class="curWidth"></div>
+        <div id="prevArea"></div>
+    </div>
+    -->
+    <div class="padding mdl-shadow--4dp result">
+        <h2>
+          <i class="fa fa-code fa-border"></i>생성된 코드
+        </h2><i class="fa fa-question-circle pull-right Q_result"></i>
+        <div class="help A_result">
+            <p class="desc">
+                생성된 코드는 style영역만 수정되었으므로 애드센스에서 가져온 광고 코드처럼 사용하시면 됩니다.
+                <br /> 광고를 삽입할 때는 <a href="http://tistory-lab.tistory.com/entry/adsense-code-maker">"애드센스 삽입코드 생성기"</a>를 활용해보세요.
+                <br />
+            </p>
+        </div>
+        <textarea id="result" rows="15" readonly=""> </textarea>
+    </div>
+
+    <script>
+    //todo: 미리보기. 단위체크
+        "use strict";
+        function extAdCode() {
+          var className = $(".className").val();
+          var ins,styles,result;
+          var code = $("#code").val();
+          //ins한개인지 체크
+          if (code.match("data-ad-format") === null) {
+            alert('광고를 넣지 않았거나, 반응형 코드가 아닙니다.');
+          } //오류 알림
+          if (code.split('ins').length > 3) {
+              alert('광고 코드는 한번만 넣어야 합니다.');
+              return '';
+          } else {
+              ins = code.match(/<ins([\s\S]+)ins>+/gi);
+              styles = getStyles();
+              //ins추출
+              ins = ins.toString().replace("adsbygoogle", "adsbygoogle " + className);
+              ins = ins.replace('displa:block', 'display:inline-block')
+              ins = ins.replace('data-ad-format="auto"', "");
+              if (className == "") {
+                  alert('광고이름을 입력해주세요.\n광고 이름은 반드시 광고단위마다 다르게 지어야하고, 띄어쓰기없이 영문,숫자로만 입력해야 합니다.');
+                  $(".className").focus();
+                  return false;
+              }
+              result = '<style>\n';
+              result += "."+className + ' { width:' + $("#defaultx").val() + '; height: ' + $("#defaulty").val() + '; }\n';
+              result += styles + '</style>\n';
+              result +='<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script>\n';
+              result += ins + '\n';
+              result +='<script>\n(adsbygoogle = window.adsbygoogle || []).push({});\n<\/script>';
+              $("#result").val(result);
+              //미리보기 생성
+              prevIns = ins.toString().replace("adsbygoogle", "");
+              $('#prevArea').html('<style>\n.' + className + ' { width:' + $("#defaultx").val() + '; height: ' + $("#defaulty").val() + '; }\n' + styles + '</style>' + prevIns + '');
+              $(".preview, .result").show("slow", "swing");
+            }
+        }
+        function getStyle(n) {
+          var className = $(".className").val();
+          var ifMore = $(".cases:nth-of-type(" + n + ") .if").val();
+          var width = $(".cases:nth-of-type(" + n + ") .width").val();
+          var height = $(".cases:nth-of-type(" + n + ") .height").val();
+          var minOrMax = $(".cases:nth-of-type(" + n + ") .minOrMax").val();
+          if (minOrMax == "이상") {
+              minOrMax = "min"
+          } else if (minOrMax == "이하") {
+              minOrMax = "max"
+          }
+          if (ifMore === undefined) {
+              return '';
+          } else if ($(".cases:nth-of-type(" + n + ") .displayN").is(":checked")) {
+              return '@media(' + minOrMax + '-width: ' + ifMore + 'px) { .' + className + ' { display:none; } }\n';
+          } else {
+              return '@media(' + minOrMax + '-width: ' + ifMore + 'px) { .' + className + ' { width: ' + width + '; height: ' + height + '; } }\n';
+          }
+        }
+
+        function getStyles() {
+            var styles = "";
+            for (var n = 1; n <= $(".cases").length; n++) {
+                styles += getStyle(n);
+            }
+            return styles;
+        }
+        function classNaming(){
+          var r=Math.random().toString().substr(2,4);
+          var name = "myAd"+r;
+          $("input.className").val(name);
+        }
+        classNaming();
+        function countCase() {
+            var curCount = $(".cases").length;
+            if (curCount == 1) {
+                $(".minus").hide();
+            } else {
+                $(".minus").show();
+            }
+            $(".minus").off().on("click",function(event){removeCase(event)});
+        }
+        function removeCase(event) {
+            $(event.currentTarget).parent().remove();
+            countCase();
+        };
+        $(".minus").on("click",function(event){removeCase(event)});
+        $(".plus").click(function() {
+          var last=$(".cases:last-of-type").clone()
+          var checkboxID=Math.random().toString().substr(2,4);
+          last.find("[for*='checkbox']").attr("for","checkbox-"+checkboxID);
+          last.find("[id*='checkbox']").attr("id","checkbox-"+checkboxID);
+          last.appendTo('.casesWrap');
+          countCase();
+        });
+
+        $(".apply").click(
+            function() {
+                extAdCode();
+                indicator();
+            }
+        );
+
+        function indicator() {
+            dwidth = $(window).width();
+            prevwidth = $("ins").width();
+            prevheight = $("ins").height();
+            $(".curWidth").html("현재 창 가로 크기: " + dwidth + "px");
+            $("ins").html("<p>" + prevwidth + "px x " + prevheight + "px</p>");
+        }
+        $(window).resize(function() {
+            indicator();
+        });
+        $(".Q_config").click(function() {
+            $(".A_config").slideToggle();
+        });
+        $(".Q_preview").click(function() {
+            $(".A_preview").slideToggle();
+        });
+        $(".Q_result").click(function() {
+            $(".A_result").slideToggle();
+        });
+    </script>
+</div>

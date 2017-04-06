@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/wooooooooooook/adsensemaster#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "assert": "^1.4.1",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "pug": "^2.0.0-beta11",
+    "socket.io": "^1.7.3"
   }
 }
