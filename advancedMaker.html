@@ -42,9 +42,10 @@
             </p>
         </div>
         <p>광고 이름:
-            <input type="text" class="className" value="myAd1" />
+            <input type="text" class="className"/>
         </p>
-        <span class="desc">광고이름은 광고단위마다 달라야 합니다. 띄어쓰기없이 영문으로 시작하며 한글,특수문자는 포함할 수 없습니다.</span>
+        <span class="checkClassname"></span>
+        <span class="desc">광고이름은 광고단위마다 달라야 합니다.</span>
         <p> 기본 크기 <i class="material-icons">forward</i> 가로:
             <input type="text" id="defaultx" value="320px" /> 세로:
             <input type="text" id="defaulty" value="250px" />
@@ -125,8 +126,10 @@
     </div>
 
     <script>
+    /*global $*/
     //todo: 미리보기. 단위체크
         "use strict";
+        var prevIns;
         function extAdCode() {
           var className = $(".className").val();
           var ins,styles,result;
@@ -190,12 +193,20 @@
             }
             return styles;
         }
-        function classNaming(){
-          var r=Math.random().toString().substr(2,4);
-          var name = "myAd"+r;
-          $("input.className").val(name);
-        }
-        classNaming();
+        //class naming
+        var r=Math.random().toString().substr(2,4);
+        var name = "myAd"+r;
+        $("input.className").val(name);
+        //check class name
+        $("input.className").on("keydown keyup blur",function(){
+            if(!$("input.className").val().match(/[_a-zA-Z]+[_a-zA-Z0-9-]/)){
+                $(".checkClassname").text("띄어쓰기없이 영문으로 시작해야하며 한글,특수문자는 포함할 수 없습니다.");
+                $("#apply").attr("disabled",true);
+            }else{
+                $(".checkClassname").text("");
+                $("#apply").attr("disabled",false);
+            }
+        })
         function countCase() {
             var curCount = $(".cases").length;
             if (curCount == 1) {

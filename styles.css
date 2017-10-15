@@ -105,6 +105,10 @@ textarea:read-only {
 #advancedMaker textarea {
   width: 100%;
 }
+#advancedMaker .checkClassname {
+  color: #f00;
+  font-weight: bold;
+}
 #advancedMaker .cases input {
   width:50px;
 }
